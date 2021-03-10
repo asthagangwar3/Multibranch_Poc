@@ -22,6 +22,16 @@ pipeline {
             jacoco()
             }
           }
+        stage('sonar'){
+          steps
+            {
+                withSonarQubeEnv(installationName:'Sonar' , credentialsId: 'sonar_secret_new')
+                {
+                 sh 'mvn clean install sonar:sonar'
+                }
+            }
+            
+        }
        } 
        
     }
