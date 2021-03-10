@@ -10,6 +10,14 @@ pipeline {
                  sh 'mvn install -Dmaven.test.skip=true'
                 }
             }
+        stage('test')
+        {
+          steps
+            {
+              sh 'mvn clean install'
+            }
+            
+        }
         } 
        
     }
